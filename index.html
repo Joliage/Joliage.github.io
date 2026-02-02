@@ -15,17 +15,30 @@
   <style>
     :root{
       --accent:#6a0dad; --accent-2:#5a009c; --muted:#666; --card:#fff; --bg:#f4f7fb;
-      --maxw:1100px; font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+      --maxw:1100px; --blue:#007acc;
+      font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
     }
     *{box-sizing:border-box}
     body{margin:0;background:var(--bg);color:#222;line-height:1.5; -webkit-font-smoothing:antialiased}
-    header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:48px 16px;text-align:center;position:relative;overflow:hidden}
+    /* HERO */
+    header{
+      background:linear-gradient(90deg,var(--accent),var(--accent-2));
+      color:white;padding:48px 16px;text-align:center;position:relative;overflow:hidden
+    }
     header .bg-img{position:absolute;inset:0;opacity:0.12;object-fit:cover;width:100%;height:100%}
     .container{max-width:var(--maxw);margin:28px auto;padding:0 20px}
+    /* HEADINGS: blue + underline for content headings */
     h1{margin:0;font-size:2.1rem}
-     h1, h2 {
-      color: #007acc;
+    h2, h3 {
+      color: var(--blue);
+      text-decoration: underline;
+      text-underline-offset:6px;
+      text-decoration-thickness:2px;
+      text-decoration-color: rgba(0,122,204,0.9);
+      margin: 0 0 8px 0;
     }
+    /* keep hero H1 readable on dark background */
+    header h1, header p.lead { color: #fff; }
     p.lead{margin:8px 0 0;color:#f4eaff;font-size:1rem}
     .grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
     .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 10px 30px rgba(10,10,10,0.06)}
@@ -36,14 +49,28 @@
     .cta{display:inline-block;margin-top:8px;padding:8px 12px;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600}
     .skills{display:flex;flex-wrap:wrap;gap:8px}
     .skill{background:#fff;padding:8px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(10,10,10,0.05);font-size:0.9rem}
-    .projects{display:flex;flex-direction:column;gap:16px}
-    .project-card{display:flex;gap:14px;background:var(--card);border-radius:10px;padding:12px;align-items:center;cursor:pointer;transition:transform .18s,box-shadow .18s}
+    .projects{display:grid;grid-template-columns: repeat(auto-fit,minmax(320px,1fr)); gap:16px}
+    /* project card */
+    .project-card{
+      display:flex;
+      gap:14px;
+      background:var(--card);
+      border-radius:10px;
+      padding:14px;
+      align-items:flex-start;
+      cursor:pointer;
+      transition:transform .18s,box-shadow .18s;
+      min-height:140px;
+    }
     .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(10,10,10,0.12)}
     .project-header-image{width:180px;height:120px;border-radius:8px;object-fit:cover;flex-shrink:0}
     .project-content{flex:1;display:flex;flex-direction:column}
+    .project-content h3{color:var(--blue);margin-bottom:6px}
     .project-status{padding:4px 8px;border-radius:6px;color:white;font-weight:700;font-size:0.78rem;text-transform:uppercase}
     .project-status.completed{background:#28a745}
     .project-status.ongoing{background:#ffc107;color:#222}
+    .project-links a{margin-right:12px;color:var(--muted);font-size:1.05rem;text-decoration:none}
+    .project-links a:hover{color:var(--blue)}
     .search-container{display:flex;justify-content:center;margin:12px 0}
     #searchInput{width:100%;max-width:640px;padding:10px 14px;border-radius:10px;border:1.5px solid #ddd;box-shadow:0 6px 18px rgba(10,10,10,0.03)}
     .social-links a{font-size:1.25rem;margin-right:10px;color:#333;text-decoration:none}
@@ -52,13 +79,19 @@
     #modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:999}
     #modal .modal-content{background:white;padding:20px;border-radius:10px;max-width:420px;text-align:center;box-shadow:0 10px 30px rgba(10,10,10,0.15)}
     .visually-hidden{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
-    @media (max-width:980px){.grid{grid-template-columns:1fr}}
+
+    /* RESPONSIVE: stack layout on small screens */
+    @media (max-width:980px){ .grid{grid-template-columns:1fr} }
+    @media (max-width:760px){
+      .project-card{flex-direction:column;align-items:stretch;min-height:unset}
+      .project-header-image{width:100%;height:auto;aspect-ratio:16/9}
+    }
   </style>
 </head>
 <body>
   <header>
-    <!-- decorative background, keep or replace -->
-    <img class="bg-img" src="https://ik.imagekit.io/experthivetutors/ChatGPT%20Image%20Aug%207,%202025,%2006_19_48%20AM.png" alt="abstract background" />
+    <!-- decorative background (replace with your header image from ImageKit) -->
+    <img class="bg-img" src="https://ik.imagekit.io/ooiob6xdv/20260202_0945_Image%20Generation_simple_compose_01kgfqathwek98pcskts5jw5ge%20(1).png" alt="abstract background" />
     <div class="container">
       <h1>Naomie Bambara</h1>
       <p class="lead">MSc Computer Science (candidate) · Machine Learning, NLP & Speech Processing</p>
@@ -66,15 +99,15 @@
   </header>
 
   <main class="container">
-    <div class="grid">
+    <div class="grid" role="region" aria-label="Main content and sidebar">
       <!-- Main -->
-      <section class="card">
-        <h2>Featured project — Mooré Text-to-Speech (TTS)</h2>
+      <section class="card" aria-labelledby="featured-projects">
+        <h2 id="featured-projects">Featured project — Mooré Text-to-Speech (TTS)</h2>
         <p class="meta">Syllable-level, tone-aware concatenative TTS for Mooré with Praat-cut syllables, ARPABET-style lexicon, Python synthesizer and MFCC-based evaluation.</p>
 
         <div style="margin-top:12px" class="project-list">
           <div class="project">
-            <div class="thumb">TTS</div>
+            <div class="thumb" aria-hidden="true">TTS</div>
             <div>
               <h3 style="margin:0">Text-to-Speech — Hand-Cut Syllables</h3>
               <div class="meta">Python · Praat · pydub · librosa · MFCC/DTW evaluation</div>
@@ -85,7 +118,7 @@
           </div>
 
           <div class="project">
-            <div class="thumb">Demo</div>
+            <div class="thumb" aria-hidden="true">Demo</div>
             <div>
               <h3 style="margin:0">Live demo & tools</h3>
               <div class="meta">Tkinter live-typing synth · Lexicon generator · MFCC eval</div>
@@ -119,17 +152,17 @@ python tonal_tts_full.py --demo
 
       <!-- Sidebar -->
       <aside>
-        <div class="card">
-          <h3>About</h3>
+        <div class="card" aria-labelledby="about-me">
+          <h3 id="about-me">About</h3>
           <p class="meta">MSc Computer Science candidate at St. Cloud State University. Interested in NLP, speech for low-resource languages, and reproducible ML pipelines.</p>
 
           <h3 style="margin-top:12px">Skills</h3>
           <div class="skills" style="margin-top:8px">
-            <span class="skill"><i class="fab fa-python"></i>&nbsp;Python</span>
-            <span class="skill"><i class="fas fa-wave-square"></i>&nbsp;Audio DSP</span>
-            <span class="skill"><i class="fas fa-brain"></i>&nbsp;Deep Learning</span>
-            <span class="skill"><i class="fab fa-github"></i>&nbsp;Git</span>
-            <span class="skill"><i class="fas fa-microphone"></i>&nbsp;Praat</span>
+            <span class="skill"><i class="fab fa-python" aria-hidden="true"></i>&nbsp;Python</span>
+            <span class="skill"><i class="fas fa-wave-square" aria-hidden="true"></i>&nbsp;Audio DSP</span>
+            <span class="skill"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp;Deep Learning</span>
+            <span class="skill"><i class="fab fa-github" aria-hidden="true"></i>&nbsp;Git</span>
+            <span class="skill"><i class="fas fa-microphone" aria-hidden="true"></i>&nbsp;Praat</span>
           </div>
 
           <h3 style="margin-top:14px">Contact</h3>
@@ -144,58 +177,60 @@ python tonal_tts_full.py --demo
       </aside>
     </div>
 
-    <!-- Projects listing (cards) -->
-    <section class="card projects" style="margin-top:18px">
-      <div style="display:flex;justify-content:space-between;align-items:center">
+    <!-- Projects listing (responsive cards grid) -->
+    <section style="margin-top:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px">
         <h2 style="margin:0">Projects</h2>
-        <div class="search-container">
+        <div class="search-container" style="flex:1;min-width:200px;">
           <label for="searchInput" class="visually-hidden">Search Projects</label>
           <input id="searchInput" placeholder="Search projects..." />
         </div>
       </div>
 
-      <!-- Project card 1 (TTS) -->
-      <div class="project-card" tabindex="0" role="button" data-private="false" data-link="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables">
-        <img class="project-header-image" src="https://via.placeholder.com/360x240?text=TTS+Demo" alt="TTS demo" />
-        <div class="project-content">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start">
-            <h3 style="margin:0">Mooré Text-to-Speech (TTS)</h3>
-            <span class="project-status completed">Completed</span>
+      <div class="projects" aria-live="polite" style="margin-top:12px">
+        <!-- Project card 1 (TTS) -->
+        <div class="project-card" tabindex="0" role="button" data-private="false" data-link="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables">
+          <img class="project-header-image" src="https://via.placeholder.com/720x480?text=TTS+Demo" alt="TTS demo" />
+          <div class="project-content">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+              <h3 style="margin:0">Mooré Text-to-Speech (TTS)</h3>
+              <span class="project-status completed" aria-hidden="true">Completed</span>
+            </div>
+            <p class="meta" style="margin:8px 0">Syllable concatenation TTS with ARPABET-style lexicon, GUI demo and evaluation pipeline.</p>
+            <div style="margin-top:auto" class="project-links">
+              <a href="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables" title="GitHub" target="_blank" aria-label="View GitHub Repo"><i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="#" class="private-link" title="Demo (private)" aria-label="Demo (private)"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </div>
           </div>
-          <p class="meta" style="margin:8px 0">Syllable concatenation TTS with ARPABET-style lexicon, GUI demo and evaluation pipeline.</p>
-          <div style="margin-top:auto" class="project-links">
-            <a href="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" class="private-link" title="Demo (private)"><i class="fas fa-external-link-alt"></i></a>
+        </div>
+
+        <!-- Example private project -->
+        <div class="project-card" tabindex="0" role="button" data-private="true">
+          <img class="project-header-image" src="https://via.placeholder.com/720x480?text=Project+2" alt="Project 2" />
+          <div class="project-content">
+            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+              <h3 style="margin:0">Portfolio Site & Web Tools</h3>
+              <span class="project-status ongoing">Ongoing</span>
+            </div>
+            <p class="meta" style="margin:8px 0">A GitHub Pages portfolio and site templates — plus small web utilities.</p>
+            <div style="margin-top:auto" class="project-links">
+              <a href="https://github.com/NaomieBambara" title="GitHub" target="_blank" aria-label="View GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="#" class="private-link" title="Live (private)" aria-label="Live (private)"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+            </div>
           </div>
         </div>
       </div>
 
-      <!-- Add more cards as needed -->
-      <div class="project-card" tabindex="0" role="button" data-private="true">
-        <img class="project-header-image" src="https://via.placeholder.com/360x240?text=Project+2" alt="Project 2" />
-        <div class="project-content">
-          <div style="display:flex;justify-content:space-between;align-items:flex-start">
-            <h3 style="margin:0">Portfolio Site & Web Tools</h3>
-            <span class="project-status ongoing">Ongoing</span>
-          </div>
-          <p class="meta" style="margin:8px 0">A GitHub Pages portfolio and site templates — plus small web utilities.</p>
-          <div style="margin-top:auto" class="project-links">
-            <a href="https://github.com/NaomieBambara" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="#" class="private-link" title="Live (private)"><i class="fas fa-external-link-alt"></i></a>
-          </div>
-        </div>
-      </div>
-
-      <div style="text-align:center;margin-top:8px">
+      <div style="text-align:center;margin-top:12px">
         <a class="cta" href="all-projects.html">View all projects</a>
       </div>
     </section>
 
-    <footer>
+    <footer style="margin-top:20px">
       <div style="display:flex;justify-content:center;gap:12px;align-items:center;margin-bottom:8px">
-        <a class="social-links" href="mailto:naomiebambara87@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-        <a class="social-links" href="https://www.linkedin.com/in/naomie-bambara-0023201a2/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a class="social-links" href="https://github.com/NaomieBambara" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+        <a class="social-links" href="mailto:naomiebambara87@gmail.com" title="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
+        <a class="social-links" href="https://www.linkedin.com/in/naomie-bambara-0023201a2/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
+        <a class="social-links" href="https://github.com/NaomieBambara" target="_blank" title="GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
       </div>
       <div style="color:var(--muted)">© <span id="year"></span> Naomie Bambara — Built with ♥ and Python</div>
     </footer>
@@ -218,13 +253,10 @@ python tonal_tts_full.py --demo
     // Modal logic
     const modal = document.getElementById('modal');
     const closeModalBtn = document.getElementById('closeModalBtn');
-
     function showModal(){ modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; closeModalBtn.focus(); }
     function hideModal(){ modal.style.display = 'none'; document.body.style.overflow = ''; }
 
-    // private-link shows modal
     document.querySelectorAll('.private-link').forEach(l => l.addEventListener('click', e => { e.preventDefault(); showModal(); }));
-
     closeModalBtn.addEventListener('click', hideModal);
     modal.addEventListener('click', (e)=> { if(e.target === modal) hideModal(); });
 
@@ -260,6 +292,6 @@ python tonal_tts_full.py --demo
   </script>
 
   <!-- optional accessibility widget snippet (cookieyes example) -->
-  <script>(function(w,d,s,u){w._cyA11yConfig={"iconId":"default","position":{"mobile":"bottom-right","desktop":"bottom-right"},"language":{"default":"en","selected":[]}};var js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];js.src=u;js.async=true;fjs.parentNode.insertBefore(js,fjs);})(window,document,"script","https://cdn-cookieyes.com/widgets/accessibility.js?id=15a52046-1dc2-4123-abc2-6e809a8c3e84");</script>
+  <script>(function(w,d,s,u,o){w._cyA11yConfig={"iconId":"default","position":{"mobile":"bottom-right","desktop":"bottom-right"},"language":{"default":"en","selected":[]}};var js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];js.src=u;js.async=true;fjs.parentNode.insertBefore(js,fjs);})(window,document,"script","https://cdn-cookieyes.com/widgets/accessibility.js?id=15a52046-1dc2-4123-abc2-6e809a8c3e84");</script>
 </body>
 </html>
