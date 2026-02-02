@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Naomie Bambara — Portfolio</title>
+  <meta name="description" content="Naomie Bambara — ML, NLP & Speech Developer. Portfolio showcasing a Mooré Text-to-Speech prototype and other projects."/>
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!-- party.js for confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
+
+  <style>
+    :root{
+      --accent:#6a0dad; --accent-2:#5a009c; --muted:#666; --card:#fff; --bg:#f4f7fb;
+      --maxw:1100px; font-family: "Segoe UI", Roboto, system-ui, -apple-system, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:#222;line-height:1.5; -webkit-font-smoothing:antialiased}
+    header{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:white;padding:48px 16px;text-align:center;position:relative;overflow:hidden}
+    header .bg-img{position:absolute;inset:0;opacity:0.12;object-fit:cover;width:100%;height:100%}
+    .container{max-width:var(--maxw);margin:28px auto;padding:0 20px}
+    h1{margin:0;font-size:2.1rem}
+    p.lead{margin:8px 0 0;color:#f4eaff;font-size:1rem}
+    .grid{display:grid;grid-template-columns:1fr 340px;gap:22px;align-items:start}
+    .card{background:var(--card);border-radius:12px;padding:18px;box-shadow:0 10px 30px rgba(10,10,10,0.06)}
+    .project-list{display:flex;flex-direction:column;gap:14px}
+    .project{display:flex;gap:14px;align-items:center}
+    .thumb{width:96px;height:72px;border-radius:10px;background:linear-gradient(135deg,#eee,#ddd);display:flex;align-items:center;justify-content:center;color:#888;font-weight:700}
+    .meta{font-size:0.92rem;color:var(--muted)}
+    .cta{display:inline-block;margin-top:8px;padding:8px 12px;background:var(--accent);color:white;border-radius:8px;text-decoration:none;font-weight:600}
+    .skills{display:flex;flex-wrap:wrap;gap:8px}
+    .skill{background:#fff;padding:8px 12px;border-radius:999px;box-shadow:0 6px 18px rgba(10,10,10,0.05);font-size:0.9rem}
+    .projects{display:flex;flex-direction:column;gap:16px}
+    .project-card{display:flex;gap:14px;background:var(--card);border-radius:10px;padding:12px;align-items:center;cursor:pointer;transition:transform .18s,box-shadow .18s}
+    .project-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(10,10,10,0.12)}
+    .project-header-image{width:180px;height:120px;border-radius:8px;object-fit:cover;flex-shrink:0}
+    .project-content{flex:1;display:flex;flex-direction:column}
+    .project-status{padding:4px 8px;border-radius:6px;color:white;font-weight:700;font-size:0.78rem;text-transform:uppercase}
+    .project-status.completed{background:#28a745}
+    .project-status.ongoing{background:#ffc107;color:#222}
+    .search-container{display:flex;justify-content:center;margin:12px 0}
+    #searchInput{width:100%;max-width:640px;padding:10px 14px;border-radius:10px;border:1.5px solid #ddd;box-shadow:0 6px 18px rgba(10,10,10,0.03)}
+    .social-links a{font-size:1.25rem;margin-right:10px;color:#333;text-decoration:none}
+    .social-links a:hover{color:var(--accent)}
+    footer{text-align:center;padding:18px;color:var(--muted);margin-top:26px}
+    #modal{position:fixed;inset:0;display:none;align-items:center;justify-content:center;background:rgba(0,0,0,0.5);z-index:999}
+    #modal .modal-content{background:white;padding:20px;border-radius:10px;max-width:420px;text-align:center;box-shadow:0 10px 30px rgba(10,10,10,0.15)}
+    .visually-hidden{position:absolute;left:-10000px;top:auto;width:1px;height:1px;overflow:hidden}
+    @media (max-width:980px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <!-- decorative background, keep or replace -->
+    <img class="bg-img" src="https://ik.imagekit.io/experthivetutors/ChatGPT%20Image%20Aug%207,%202025,%2006_19_48%20AM.png" alt="abstract background" />
+    <div class="container">
+      <h1>Naomie Bambara</h1>
+      <p class="lead">MSc Computer Science (candidate) · Machine Learning, NLP & Speech Processing</p>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="grid">
+      <!-- Main -->
+      <section class="card">
+        <h2>Featured project — Mooré Text-to-Speech (TTS)</h2>
+        <p class="meta">Syllable-level, tone-aware concatenative TTS for Mooré with Praat-cut syllables, ARPABET-style lexicon, Python synthesizer and MFCC-based evaluation.</p>
+
+        <div style="margin-top:12px" class="project-list">
+          <div class="project">
+            <div class="thumb">TTS</div>
+            <div>
+              <h3 style="margin:0">Text-to-Speech — Hand-Cut Syllables</h3>
+              <div class="meta">Python · Praat · pydub · librosa · MFCC/DTW evaluation</div>
+              <div style="margin-top:8px">
+                <a class="cta" href="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables" target="_blank" rel="noopener">View project repo</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="project">
+            <div class="thumb">Demo</div>
+            <div>
+              <h3 style="margin:0">Live demo & tools</h3>
+              <div class="meta">Tkinter live-typing synth · Lexicon generator · MFCC eval</div>
+              <div style="margin-top:8px"><a class="cta" href="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables#readme" target="_blank">Docs & run</a></div>
+            </div>
+          </div>
+        </div>
+
+        <h3 style="margin-top:16px">Quick reproduction</h3>
+        <p class="meta">Clone repo, create venv, install requirements, run demo.</p>
+        <pre style="background:#0f1720;color:#e7eef8;padding:10px;border-radius:8px;overflow:auto">
+git clone https://github.com/NaomieBambara/Text-to-Speech--HandSyllables.git
+cd Text-to-Speech--HandSyllables
+python -m venv venv
+# Windows PowerShell
+.\venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python tonal_tts_full.py --demo
+        </pre>
+
+        <section style="margin-top:14px">
+          <h3>Highlights</h3>
+          <ul class="meta">
+            <li>Hand-segmented syllable corpus (1–100 sentences) with tone labels (1 low / 2 mid / 3 high).</li>
+            <li>Orthography → token lexicon with diphthong/triphthong alternates for flexible synthesis.</li>
+            <li>Concatenative synthesizer with amplitude normalization, short inter-token silence, and optional pitch-preserving transforms.</li>
+            <li>Objective MFCC+DTW evaluation and draft MOS-style listening tests.</li>
+          </ul>
+        </section>
+      </section>
+
+      <!-- Sidebar -->
+      <aside>
+        <div class="card">
+          <h3>About</h3>
+          <p class="meta">MSc Computer Science candidate at St. Cloud State University. Interested in NLP, speech for low-resource languages, and reproducible ML pipelines.</p>
+
+          <h3 style="margin-top:12px">Skills</h3>
+          <div class="skills" style="margin-top:8px">
+            <span class="skill"><i class="fab fa-python"></i>&nbsp;Python</span>
+            <span class="skill"><i class="fas fa-wave-square"></i>&nbsp;Audio DSP</span>
+            <span class="skill"><i class="fas fa-brain"></i>&nbsp;Deep Learning</span>
+            <span class="skill"><i class="fab fa-github"></i>&nbsp;Git</span>
+            <span class="skill"><i class="fas fa-microphone"></i>&nbsp;Praat</span>
+          </div>
+
+          <h3 style="margin-top:14px">Contact</h3>
+          <p class="meta">Email: <a href="mailto:naomiebambara87@gmail.com">naomiebambara87@gmail.com</a></p>
+          <p class="meta">LinkedIn: <a href="https://www.linkedin.com/in/naomie-bambara-0023201a2/" target="_blank">linkedin.com/in/naomie-bambara-0023201a2</a></p>
+          <p class="meta">GitHub: <a href="https://github.com/NaomieBambara" target="_blank">github.com/NaomieBambara</a></p>
+
+          <div style="margin-top:12px">
+            <a class="cta" href="resume.pdf">Download resume</a>
+          </div>
+        </div>
+      </aside>
+    </div>
+
+    <!-- Projects listing (cards) -->
+    <section class="card projects" style="margin-top:18px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <h2 style="margin:0">Projects</h2>
+        <div class="search-container">
+          <label for="searchInput" class="visually-hidden">Search Projects</label>
+          <input id="searchInput" placeholder="Search projects..." />
+        </div>
+      </div>
+
+      <!-- Project card 1 (TTS) -->
+      <div class="project-card" tabindex="0" role="button" data-private="false" data-link="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables">
+        <img class="project-header-image" src="https://via.placeholder.com/360x240?text=TTS+Demo" alt="TTS demo" />
+        <div class="project-content">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <h3 style="margin:0">Mooré Text-to-Speech (TTS)</h3>
+            <span class="project-status completed">Completed</span>
+          </div>
+          <p class="meta" style="margin:8px 0">Syllable concatenation TTS with ARPABET-style lexicon, GUI demo and evaluation pipeline.</p>
+          <div style="margin-top:auto" class="project-links">
+            <a href="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" class="private-link" title="Demo (private)"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Add more cards as needed -->
+      <div class="project-card" tabindex="0" role="button" data-private="true">
+        <img class="project-header-image" src="https://via.placeholder.com/360x240?text=Project+2" alt="Project 2" />
+        <div class="project-content">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start">
+            <h3 style="margin:0">Portfolio Site & Web Tools</h3>
+            <span class="project-status ongoing">Ongoing</span>
+          </div>
+          <p class="meta" style="margin:8px 0">A GitHub Pages portfolio and site templates — plus small web utilities.</p>
+          <div style="margin-top:auto" class="project-links">
+            <a href="https://github.com/NaomieBambara" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="#" class="private-link" title="Live (private)"><i class="fas fa-external-link-alt"></i></a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center;margin-top:8px">
+        <a class="cta" href="all-projects.html">View all projects</a>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;justify-content:center;gap:12px;align-items:center;margin-bottom:8px">
+        <a class="social-links" href="mailto:naomiebambara87@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+        <a class="social-links" href="https://www.linkedin.com/in/naomie-bambara-0023201a2/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a class="social-links" href="https://github.com/NaomieBambara" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+      </div>
+      <div style="color:var(--muted)">© <span id="year"></span> Naomie Bambara — Built with ♥ and Python</div>
+    </footer>
+  </main>
+
+  <!-- modal -->
+  <div id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc">
+    <div class="modal-content">
+      <h3 id="modalTitle">Private Repository</h3>
+      <p id="modalDesc">This project is private. Please email <a href="mailto:naomiebambara87@gmail.com">naomiebambara87@gmail.com</a> to request access.</p>
+      <div style="margin-top:12px">
+        <button id="closeModalBtn" style="padding:8px 12px;border-radius:8px;background:var(--accent);color:white;border:0">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Modal logic
+    const modal = document.getElementById('modal');
+    const closeModalBtn = document.getElementById('closeModalBtn');
+
+    function showModal(){ modal.style.display = 'flex'; document.body.style.overflow = 'hidden'; closeModalBtn.focus(); }
+    function hideModal(){ modal.style.display = 'none'; document.body.style.overflow = ''; }
+
+    // private-link shows modal
+    document.querySelectorAll('.private-link').forEach(l => l.addEventListener('click', e => { e.preventDefault(); showModal(); }));
+
+    closeModalBtn.addEventListener('click', hideModal);
+    modal.addEventListener('click', (e)=> { if(e.target === modal) hideModal(); });
+
+    // project card interactions + confetti
+    document.querySelectorAll('.project-card').forEach(card => {
+      card.addEventListener('click', (event) => {
+        if (event.target.closest('a')) return; // let links work
+        if (typeof party !== 'undefined' && party.confetti) {
+          party.confetti(card, { count: party.variation.range(18, 36), spread: 70, speed: 400, size: 1.2 });
+        }
+        const isPrivate = card.getAttribute('data-private') === 'true';
+        if (isPrivate) { showModal(); }
+        else {
+          const link = card.getAttribute('data-link');
+          if (link) window.open(link, '_blank');
+        }
+      });
+      card.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); card.click(); } });
+    });
+
+    // search filter
+    const searchInput = document.getElementById('searchInput');
+    const projectCards = document.querySelectorAll('.project-card');
+    if (searchInput) {
+      searchInput.addEventListener('input', function () {
+        const q = this.value.toLowerCase().trim();
+        projectCards.forEach(card => {
+          const text = card.textContent.toLowerCase();
+          card.style.display = text.includes(q) ? 'flex' : 'none';
+        });
+      });
+    }
+  </script>
+
+  <!-- optional accessibility widget snippet (cookieyes example) -->
+  <script>(function(w,d,s,u){w._cyA11yConfig={"iconId":"default","position":{"mobile":"bottom-right","desktop":"bottom-right"},"language":{"default":"en","selected":[]}};var js=d.createElement(s),fjs=d.getElementsByTagName(s)[0];js.src=u;js.async=true;fjs.parentNode.insertBefore(js,fjs);})(window,document,"script","https://cdn-cookieyes.com/widgets/accessibility.js?id=15a52046-1dc2-4123-abc2-6e809a8c3e84");</script>
+</body>
+</html>
