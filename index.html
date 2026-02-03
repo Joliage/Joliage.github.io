@@ -13,6 +13,34 @@
   <script src="https://cdn.jsdelivr.net/npm/party-js@latest/bundle/party.min.js"></script>
 
   <style>
+    .contact-icons{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  margin-top:10px;
+  text-align:center;
+}
+
+.contact-item{
+  flex:1;
+}
+
+.contact-item i{
+  font-size:1.6rem;
+  color:var(--accent);
+  margin-bottom:4px;
+  display:block;
+}
+
+.contact-item a{
+  font-size:0.85rem;
+  color:var(--muted);
+  text-decoration:none;
+}
+
+.contact-item a:hover{
+  color:var(--blue);
+}
     :root{
       --accent:#6a0dad; --accent-2:#5a009c; --muted:#666; --card:#fff; --bg:#f4f7fb;
       --maxw:1100px; --blue:#007acc;
@@ -165,14 +193,28 @@ python tonal_tts_full.py --demo
             <span class="skill"><i class="fas fa-microphone" aria-hidden="true"></i>&nbsp;Praat</span>
           </div>
 
-          <h3 style="margin-top:14px">Contact</h3>
-          <p class="meta">Email: <a href="mailto:naomiebambara87@gmail.com">naomiebambara87@gmail.com</a></p>
-          <p class="meta">LinkedIn: <a href="https://www.linkedin.com/in/naomie-bambara-0023201a2/" target="_blank">linkedin.com/in/naomie-bambara-0023201a2</a></p>
-          <p class="meta">GitHub: <a href="https://github.com/NaomieBambara" target="_blank">github.com/NaomieBambara</a></p>
+        <h3 style="margin-top:14px">Contact</h3>
 
-          <div style="margin-top:12px">
-            <a class="cta" href="resume.pdf">Download resume</a>
-          </div>
+<div class="contact-icons">
+  <div class="contact-item">
+    <i class="fas fa-envelope"></i>
+    <a href="mailto:naomiebambara87@gmail.com">Email</a>
+  </div>
+
+  <div class="contact-item">
+    <i class="fab fa-linkedin"></i>
+    <a href="https://www.linkedin.com/in/naomie-bambara-0023201a2/" target="_blank">
+      LinkedIn
+    </a>
+  </div>
+
+  <div class="contact-item">
+    <i class="fab fa-github"></i>
+    <a href="https://github.com/Joliage" target="_blank">
+      GitHub
+    </a>
+  </div>
+</div>
         </div>
       </aside>
     </div>
@@ -190,7 +232,7 @@ python tonal_tts_full.py --demo
       <div class="projects" aria-live="polite" style="margin-top:12px">
         <!-- Project card 1 (TTS) -->
         <div class="project-card" tabindex="0" role="button" data-private="false" data-link="https://github.com/NaomieBambara/Text-to-Speech--HandSyllables">
-          <img class="project-header-image" src="https://via.placeholder.com/720x480?text=TTS+Demo" alt="TTS demo" />
+          <img class="project-header-image" src="https://ik.imagekit.io/ooiob6xdv/FIG_GUI_DEMO_1%20(1).png" alt="TTS demo" />
           <div class="project-content">
             <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
               <h3 style="margin:0">Mooré Text-to-Speech (TTS)</h3>
@@ -204,25 +246,62 @@ python tonal_tts_full.py --demo
           </div>
         </div>
 
-        <!-- Example private project -->
-        <div class="project-card" tabindex="0" role="button" data-private="true">
-          <img class="project-header-image" src="https://via.placeholder.com/720x480?text=Project+2" alt="Project 2" />
-          <div class="project-content">
-            <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
-              <h3 style="margin:0">Portfolio Site & Web Tools</h3>
-              <span class="project-status ongoing">Ongoing</span>
-            </div>
-            <p class="meta" style="margin:8px 0">A GitHub Pages portfolio and site templates — plus small web utilities.</p>
-            <div style="margin-top:auto" class="project-links">
-              <a href="https://github.com/NaomieBambara" title="GitHub" target="_blank" aria-label="View GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
-              <a href="#" class="private-link" title="Live (private)" aria-label="Live (private)"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
-            </div>
-          </div>
-        </div>
+<!-- California Housing Prices Project -->
+<div class="project-card" tabindex="0" role="button" data-private="false" data-link="https://github.com/Joliage/Neural-Networks---Project-1-California-Housing-Prices">
+  <img class="project-header-image" src="https://ik.imagekit.io/ooiob6xdv/20260202_1140_Image%20Generation_simple_compose_01kgfxwpa3eb1s2rmhf6j3n4ky.png" alt="California Housing Prices" />
+  <div class="project-content">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+      <h3 style="margin:0">California Housing Prices Prediction</h3>
+      <span class="project-status completed" aria-hidden="true">Completed</span>
+    </div>
+    <p class="meta" style="margin:8px 0">
+      Predict housing prices in California using Linear Regression, Decision Tree, and Random Forest models. Evaluated with RMSE, preprocessing done with pandas and scikit-learn.
+    </p>
+    <div style="margin-top:auto" class="project-links">
+      <a href="https://github.com/Joliage/Neural-Networks---Project-1-California-Housing-Prices" title="GitHub" target="_blank" aria-label="View GitHub Repo"><i class="fab fa-github" aria-hidden="true"></i></a>
+      <a href="#" class="private-link" title="Demo (private)" aria-label="Demo (private)"><i class="fas fa-external-link-alt" aria-hidden="true"></i></a>
+    </div>
+  </div>
+</div>
+
+<!-- UNESCAP DSpace Analytics Project -->
+<div class="project-card"
+     tabindex="0"
+     role="button"
+     data-private="false"
+     data-link="https://github.com/Joliage/unescap-dspace-analytics">
+
+  <img class="project-header-image"
+       src="https://ik.imagekit.io/ooiob6xdv/20260202_2255_Image%20Generation_simple_compose_01kgh4hhk6f8wvdkvhwxb1b4fe.png"
+       alt="UNESCAP DSpace Analytics" />
+
+  <div class="project-content">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:12px">
+      <h3 style="margin:0">UNESCAP DSpace 7 Analytics</h3>
+      <span class="project-status completed" aria-hidden="true">Completed</span>
+    </div>
+
+    <p class="meta" style="margin:8px 0">
+      Production-grade backend analytics system for filtering bot traffic from
+      UNESCAP’s DSpace 7 repository. Built with Python, MongoDB, REST APIs, and
+      external IP intelligence services.
+    </p>
+
+    <div style="margin-top:auto" class="project-links">
+      <a href="https://github.com/Joliage/unescap-dspace-analytics"
+         title="GitHub"
+         target="_blank"
+         aria-label="View GitHub Repo">
+        <i class="fab fa-github" aria-hidden="true"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
       </div>
 
       <div style="text-align:center;margin-top:12px">
-        <a class="cta" href="all-projects.html">View all projects</a>
+        <a class="cta" href="projects.html">View all projects</a>
       </div>
     </section>
 

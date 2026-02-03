@@ -193,65 +193,143 @@
     const params = new URLSearchParams(window.location.search);
     const id = (params.get("id") || "1").toString();
 
-    // Projects registry (customizable)
-    const projects = {
-      "1": {
-        title: "Mooré Text-to-Speech (TTS) — Hand-Cut Syllables",
-        images: [
-          { src: "https://via.placeholder.com/1280x720?text=Moore+TTS+Demo", title: "TTS Demo / Spectrogram" }
-        ],
-        description: `
-          <p><strong>Overview:</strong> Syllable-level, tone-aware Text-to-Speech prototype for the Mooré language. Uses hand-cut syllable WAVs, ARPABET-style lexicon entries, and a Python concatenative synthesizer.</p>
-          <h3>Key components</h3>
-          <ul>
-            <li>Praat + Parselmouth scripts for syllable extraction and TextGrid-assisted exports</li>
-            <li>Lexicon generator for orthography → token mappings (diphthong/triphthong alternates)</li>
-            <li>Python synthesizer (pydub) with optional pitch-preserving transforms (librosa)</li>
-            <li>MFCC + DTW evaluation pipeline for objective comparisons between combined vs split tokens</li>
-          </ul>
-          <h3>How to run (quick)</h3>
-          <pre>git clone https://github.com/NaomieBambara/Text-to-Speech--HandSyllables.git
+ // Projects registry
+  const projects = {
+    "1": {
+      title: "Mooré Text-to-Speech (TTS) — Hand-Cut Syllables",
+      images: [
+        {
+          src: "https://ik.imagekit.io/ooiob6xdv/FIG_GUI_DEMO_1%20(1).png",
+          title: "TTS GUI & Syllable Concatenation Demo"
+        }
+      ],
+      description: `
+        <p><strong>Overview:</strong> A syllable-level, tone-aware Text-to-Speech prototype for the Mooré language. Built using hand-cut syllable WAV files and an ARPABET-style lexicon.</p>
+
+        <h3>Key components</h3>
+        <ul>
+          <li>Praat + Parselmouth pipelines for syllable extraction</li>
+          <li>ARPABET-style lexicon with tone annotations</li>
+          <li>Python concatenative synthesizer using pydub</li>
+          <li>MFCC + DTW evaluation for objective quality comparison</li>
+        </ul>
+
+        <h3>How to run (quick)</h3>
+        <pre>
+git clone https://github.com/NaomieBambara/Text-to-Speech--HandSyllables.git
 cd Text-to-Speech--HandSyllables
 python -m venv venv
 # PowerShell
 .\\venv\\Scripts\\Activate.ps1
 pip install -r requirements.txt
 python tonal_tts_full.py --demo
-          </pre>
-          <h3>Research notes</h3>
-          <p>Preserves tone by selecting syllables with correct tone labels (1 low, 2 mid, 3 high). Supports long vowels and complex tone shapes by combining token sequences. Evaluation uses MFCC distances and DTW to measure spectral similarity.</p>
-        `,
-        links: [
-          { href: "https://github.com/NaomieBambara/Text-to-Speech--HandSyllables", label: "GitHub: TTS project" },
-          { href: "#", label: "Demo (private)" }
-        ],
-        private: false
-      },
+        </pre>
 
-      "2": {
-        title: "Portfolio & Web Templates (GitHub Pages)",
-        images: [
-          { src: "https://via.placeholder.com/1280x720?text=Portfolio+Site", title: "Portfolio Site Screenshot" }
-        ],
-        description: `
-          <p>Static portfolio site built for GitHub Pages. Includes index, project pages, resume download, sample audio links, and easy customization instructions.</p>
-          <h3>Files included</h3>
-          <ul>
-            <li><code>index.html</code> — main landing page</li>
-            <li><code>projects.html</code> — project detail pages</li>
-            <li><code>/assets</code> — screenshots & audio samples</li>
-            <li><code>README.md</code> — instructions & project summary</li>
-          </ul>
-        `,
-        links: [
-          { href: "https://github.com/NaomieBambara", label: "My GitHub profile" }
-        ],
-        private: false
-      }
+        <p>
+          Tone preservation is handled via syllable selection with tone labels
+          (low, mid, high). Supports long vowels and compound tone sequences.
+        </p>
+      `,
+      links: [
+        {
+          href: "https://github.com/NaomieBambara/Text-to-Speech--HandSyllables",
+          label: "GitHub Repository"
+        },
+        {
+          href: "#",
+          label: "Demo (private)"
+        }
+      ],
+      private: false
+    },
 
-      // Add more projects here if needed
-    };
+    "2": {
+      title: "California Housing Prices Prediction",
+      images: [
+        {
+          src: "https://ik.imagekit.io/ooiob6xdv/20260202_1140_Image%20Generation_simple_compose_01kgfxwpa3eb1s2rmhf6j3n4ky.png",
+          title: "ML Models & Evaluation Overview"
+        }
+      ],
+      description: `
+        <p><strong>Overview:</strong> Machine learning project focused on predicting housing prices in California using classical regression and tree-based models.</p>
 
+        <h3>Models used</h3>
+        <ul>
+          <li>Linear Regression</li>
+          <li>Decision Tree Regressor</li>
+          <li>Random Forest Regressor</li>
+        </ul>
+
+        <h3>Pipeline</h3>
+        <ul>
+          <li>Data cleaning and preprocessing with pandas</li>
+          <li>Feature scaling and train/test splitting</li>
+          <li>Model evaluation using RMSE</li>
+        </ul>
+
+        <p>
+          This project demonstrates comparative model performance analysis and
+          practical use of scikit-learn for supervised regression tasks.
+        </p>
+      `,
+      links: [
+        {
+          href: "https://github.com/Joliage/Neural-Networks---Project-1-California-Housing-Prices",
+          label: "GitHub Repository"
+        },
+        {
+          href: "#",
+          label: "Demo (private)"
+        }
+      ],
+      private: false
+    },
+
+    "3": {
+      title: "UNESCAP DSpace 7 Analytics",
+      images: [
+        {
+          src: "https://ik.imagekit.io/ooiob6xdv/20260202_2255_Image%20Generation_simple_compose_01kgh4hhk6f8wvdkvhwxb1b4fe.png",
+          title: "DSpace 7 Backend Analytics System"
+        }
+      ],
+      description: `
+        <p><strong>Overview:</strong> A production-grade backend analytics system
+        developed for UNESCAP’s DSpace 7 repository to filter automated bot traffic
+        and improve usage statistics accuracy.</p>
+
+        <h3>Core features</h3>
+        <ul>
+          <li>Bot detection and traffic classification</li>
+          <li>Integration with external IP intelligence services</li>
+          <li>REST API-based ingestion and reporting</li>
+          <li>MongoDB-backed analytics storage</li>
+        </ul>
+
+        <h3>Tech stack</h3>
+        <ul>
+          <li>Python</li>
+          <li>MongoDB</li>
+          <li>REST APIs</li>
+          <li>External IP reputation services</li>
+        </ul>
+
+        <p>
+          Designed for reliability, scalability, and real-world deployment
+          within an international organization’s digital repository.
+        </p>
+      `,
+      links: [
+        {
+          href: "https://github.com/Joliage/unescap-dspace-analytics",
+          label: "GitHub Repository"
+        }
+      ],
+      private: false
+    }
+  };
+  
     const project = projects[id];
     const titleEl = document.getElementById("project-title");
     const imagesEl = document.getElementById("images");
